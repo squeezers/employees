@@ -1,0 +1,177 @@
+<!doctype HTML>
+<style>
+html {
+  margin: 0;
+  padding: 0;
+  border:0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url(orangeSqueeze.jpg);
+  background-repeat: repeat;
+  background-size: 100% auto;
+  background-position: 50% 100px;
+  background-color: rgba(148, 194, 204, 0.5);
+  background-attachment: fixed;
+}
+h1 {
+  color: rgb(255, 184, 5);
+  margin: 0;
+}
+h3 {
+  margin: 0;
+  text-align: center;
+}
+.tabs {
+  padding: 6px 10px 6px 10px;
+  width: 150px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  margin-left: 10px;
+}
+.inactiveTab {
+  color: white;
+  background-color: #FAA61C;
+  transition: background-color 0.3s ease-in;
+}
+.inactiveTab:hover {
+  cursor: pointer;
+  background-color: #F7D54B;
+  transition: background-color 0.3s ease-out;
+}
+.activeTab {
+  color: white;
+  background-color: #CADEE9;
+}
+.activeTab:hover {
+  cursor: default;
+}
+.pages {
+  text-align: center;
+  height: 150%
+  transition: opacity 0.75s ease;
+  overflow: hidden;
+}
+
+.activePage {
+  transition: opacity 0.75s ease;
+}
+.inactivePage {
+  opacity: 0;
+  height: 0px;
+  transition: opacity 0.75s ease;
+}
+.contentTitle {
+  margin-top: 10px;
+}
+.caption {
+  width: 370px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#topSpacer {
+  height: 135px;
+}
+#titleDiv {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  background-color: rgb(250,250,250);
+  padding: 5px;
+  margin: 0;
+  position: fixed;
+}
+#title {
+  margin: 10px 0 5px 10px;
+}
+#menuDiv {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: rgb(250,250,250);
+  margin: 100px 0 0 0;
+  position: fixed;
+}
+#recTable {
+  text-align:center;
+  width:100%;
+}
+</style>
+<body>
+  <div id="titleDiv">
+    <img src="Squeeze_Logo.png" height="75px" id="title"/>
+    
+  </div>
+  <div id="menuDiv">
+    <div id="homeTab" class="tabs activeTab" onclick="switchPage('home')">
+      <h3>Home</h3>
+    </div>
+    <div id="aboutTab" class="tabs inactiveTab" onclick="switchPage('about')">
+      <h3>About</h3>
+    </div>
+    <div id="recognitionsTab" class="tabs inactiveTab" onclick="switchPage('recognitions')">
+      <h3>Recognitions</h3>
+    </div>
+  </div>
+  <div id="topSpacer"></div>
+  <div id="homePage" class="pages activePage">
+    <h1 class="contentTitle">Home</h1>
+  </div>
+  <div id="aboutPage" class="pages inactivePage">
+    <h1 class="contentTitle">About</h1>
+  </div>
+  <div id="recognitionsPage" class="pages inactivePage">
+    <h1 class="contentTitle">Recognitions</h1>
+    <table id="recTable">
+      <tr>
+        <td>
+	  <h2>Employee of the Year!</h2>
+        </td>
+        <td>
+          <h2>Worst Employee of the Year!</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="Karen.jpg" style="height: 500px;width:auto;">
+        </td>
+        <td>
+          <img src="Braden.jpg" style="height: 500px;width:auto;">
+        </td>
+      </tr>
+      <tr>
+        <td style="align: center">
+          <p class="caption">Karen Ramirez has been an invaluable member of the Squeeze team
+                             since the day she walked in our door over a year ago, and we are
+                             pleased to present her with this award for EMPLOYEE OF THE YEAR!</p>
+        </td>
+        <td>
+          <p class="caption">Braden Condie has been an ok employee with slightly below average performance
+                             on almost every campaign we've reluctantly put him on. The only reason he's
+                             still here is as a favor we owed his father. It seemed only fitting to present 
+                             him with this award for WORST EMPLOYEE OF THE YEAR!</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+<script>
+window.onload = function () {
+  //switchPage("home");
+}
+
+function switchPage(key) {
+  var page = document.getElementById(key + "Page");
+  var activePages = document.getElementsByClassName("pages activePage");
+  var tab = document.getElementById(key + "Tab");
+  var activeTabs = document.getElementsByClassName("tabs activeTab");
+
+  activePages[0].className = "pages inactivePage"
+  page.className = "pages activePage";
+  
+  activeTabs[0].className = "tabs inactiveTab"
+  tab.className = "tabs activeTab"
+}
+</script>
